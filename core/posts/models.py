@@ -1,0 +1,24 @@
+from django.db import models
+from core import settings
+
+# Create your models here.
+
+class Book(models.Model):
+    isbn = models.CharField(max_length=20)
+    author = models.CharField(max_length=50)
+    title = models.CharField(max_length=100)
+    cover_image = models.ImageField()
+
+class Post(models.Model):
+    poster = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        )
+    draft_started_datetime = models.DateTimeField(auto_now_add=True, editable=False)
+    last_update = models.DateTimeField(auto_now=True, editable=False)
+    visible = models.BooleanField(default=True)
+    
+    date_to_publish = models.DateTimeField(auto_now=False)
+    post_title = models.CharField(max_length=75)
+    post_contents = models.TextField()
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)

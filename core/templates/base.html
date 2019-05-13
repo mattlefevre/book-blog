@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Fonts & images from fontawesome -->
+
+    {% block title %}
+    <title>BasePage</title>
+    {% endblock title %}
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <!-- <button><i class="fas fa-bars"></i></button> -->
+            <li>Home</li>
+            <li>Posts</li>
+            <li>Books</li>
+
+        </ul>
+        <ul>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'account_logout' %}">Log Out</a></li>
+            {% else %}
+            <li><a href="{% url 'account_login' %}">Sign In</a></li>
+            <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% block content %}
+
+    {% endblock content %}
+</body>
+</html>
