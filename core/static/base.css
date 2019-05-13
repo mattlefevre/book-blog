@@ -1,0 +1,17 @@
+header {
+    display:flex;
+    justify-content: center;
+}
+
+#main-nav {
+    background-color: purple;
+    color: white;
+}
+
+.main-nav-links {
+    color:white;
+}
+
+.main-nav-links:hover {
+    color:gray;
+}

@@ -28,7 +28,7 @@ class Post(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
     class Meta:
-        ordering = ('-publish_at')
+        ordering = ['-publish_at']
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.post_title,self.pk)

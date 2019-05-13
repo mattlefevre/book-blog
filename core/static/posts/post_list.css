@@ -1,0 +1,14 @@
+
+
+.author_line {
+    display:flex;
+    justify-content: space-between
+}
+
+.author_line a{
+    flex: 1 1 auto;
+}
+
+.author_line time{
+    flex: 2 1 auto;
+}
