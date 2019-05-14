@@ -3,15 +3,19 @@ header {
     justify-content: center;
 }
 
-#main-nav {
-    background-color: purple;
-    color: white;
-}
-
 .main-nav-links {
     color:white;
 }
 
 .main-nav-links:hover {
     color:gray;
+}
+
+#main-nav {
+    background-color: purple;
+    color: white;
+}
+
+#nav-burger {
+    color:white;
 }
