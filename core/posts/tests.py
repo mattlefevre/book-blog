@@ -33,22 +33,16 @@ class LoggedInResponseTests(TestCase):
         CustomUser.objects.create_user(**self.credentials)
     
     def test_login(self):
-        self.set_up()
-        #login
+        # Login using customized login flow (email, rather than username)
         response = self.client.post('accounts/login/', 
             **email=self.credentials['email_address'],
             **password=self.credentials['password'],follow=True)
-        # should be logged in now
         self.assertTrue(response.context['CustomUser'].is_authenticated)
     
     def test_new_post_page_status_code_logged_in(self):
-        self.set_up()
-        response = self.client.post('accounts/login/', **self.credentials, follow=True)
         response = self.client.get("/new_post")
         self.assertEqual(response.status_code, 200)
 
     def test_update_post_page_status_code_logged_in(self):
-        self.set_up()
-        response = self.client.post('accounts/login/', **self.credentials, follow=True)
         response = self.client.get("/update_post")
         self.assertEqual(response.status_code, 200)
