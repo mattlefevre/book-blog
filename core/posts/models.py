@@ -13,18 +13,22 @@ class Book(models.Model):
     cover_image = models.ImageField()
 
 class Post(models.Model):
+    # Automatically-created
     poster = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         )
     draft_started_datetime = models.DateTimeField(auto_now_add=True, editable=False)
     last_update = models.DateTimeField(auto_now=True, editable=False)
-    visible = models.BooleanField(default=True)
     publish_at = models.DateTimeField(auto_now=True)
-
-    post_title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=150, default='')
+    visible = models.BooleanField(default=True)
+
+    # User-created
+    post_title = models.CharField(max_length=100)
+    synopsis = models.TextField()
     post_contents = models.TextField()
+    rating = models.PositiveSmallIntegerField()
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
     class Meta:
