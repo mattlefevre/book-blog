@@ -8,9 +8,11 @@
     <h1>All Reviewers:</h1>
 
     {% for poster in object_list %}
-        <h1>{{ poster.username }}</h1>
+        <h3>{{ poster.username }}</h3>
         {% for post in poster.posts %}
-        <h5><a href="{% url 'individual_post' post.slug %}">{{ post.title }}</a></h5>
+        <ul>
+            <h5><a href="{% url 'individual_post' post.slug %}">{{ post.title }}</a></h5>
+        </ul>
         {% endfor %}
     {% endfor %}
     

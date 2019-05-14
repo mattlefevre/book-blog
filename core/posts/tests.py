@@ -44,4 +44,5 @@ class LoggedOutPostResponseTests(TestCase):
 
 
 class LoggedInResponseTests(TestCase):
+    # NOTE: Gotta figure out how to test while logged in
     pass
