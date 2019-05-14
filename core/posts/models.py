@@ -23,7 +23,7 @@ class Post(models.Model):
     publish_at = models.DateTimeField(auto_now=True)
 
     post_title = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=150)
+    slug = models.SlugField(max_length=150, default='')
     post_contents = models.TextField()
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
