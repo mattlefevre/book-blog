@@ -33,12 +33,13 @@
                 <i class="fas fa-bars" id='nav-burger'></i>
             </button>
 
-            <div class="collapse navbar-collapse col-md-6" id="navbarNavAltMarkup">
-                <a class="main-nav-links nav-item nav-link" href="#">Home</a>
-                <a class="main-nav-links nav-item nav-link" href="#">Posts</a>
-                <a class="main-nav-links nav-item nav-link" href="#">Books</a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <a class="main-nav-links nav-link" href="{% url 'home' %}">Home</a>
+                <!-- TODO: Update ?POSTS? To link to something else -->
+                <a class="main-nav-links nav-link" href="#">?Posts?</a>
+                <a class="main-nav-links nav-link" href="#">Books</a>
             </div>
-            <div class="collapse navbar-collapse col-md-6 pull-right" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse col-md-6" id="navbarNavAltMarkup">
                 {% if user.is_authenticated %}
                     <a class="main-nav-links nav-item nav-link" href="{% url 'account_logout' %}">Log Out</a>
                 {% else %}
@@ -53,6 +54,6 @@
     {% block content %}
 
     {% endblock content %}
-    </div>
+</div>
 </body>
 </html>
