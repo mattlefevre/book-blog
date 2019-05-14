@@ -20,7 +20,7 @@ class Post(models.Model):
     draft_started_datetime = models.DateTimeField(auto_now_add=True, editable=False)
     last_update = models.DateTimeField(auto_now=True, editable=False)
     visible = models.BooleanField(default=True)
-    publish_at = models.DateTimeField(auto_now=False)
+    publish_at = models.DateTimeField(auto_now=True)
 
     post_title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=150)

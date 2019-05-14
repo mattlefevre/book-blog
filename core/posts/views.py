@@ -9,6 +9,10 @@ from posts.models import Post
 # Create your views here.
 class PostCreateView(CreateView):
     model = Post
+    fields = [
+        'post_title',
+        'post_contents',
+    ]
 
 class PostDeleteView(DeleteView):
     model = Post
