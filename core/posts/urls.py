@@ -8,8 +8,8 @@ from posts.views import (
     PostUpdateView,
 )
 
-# NOTE: URL permisisons are being set in this file. Note the login_required functions
-# NOTE: in each path().
+# NOTE: URL permisisons are being set in this file where applicable. / 
+# NOTE: Note the "login_required" functions in each appropriate each path().
 
 urlpatterns = [
     path("", PostListView.as_view(), name="home"),
