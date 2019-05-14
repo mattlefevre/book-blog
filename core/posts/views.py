@@ -7,13 +7,12 @@ from django.views.generic import (
     UpdateView,
 )
 
-from posts.models import Post
+from posts.models import Book, Post
 
 # Create your views here.
 class PostCreateView(CreateView):
     model = Post
     fields = ["post_title", "post_contents"]
-
 
 class PostDeleteView(DeleteView):
     model = Post
@@ -30,3 +29,6 @@ class PostListView(ListView):
 
 class PostUpdateView(UpdateView):
     model = Post
+
+class BookListView(ListView):
+    model = Book
