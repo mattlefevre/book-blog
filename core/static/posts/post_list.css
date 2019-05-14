@@ -1,4 +1,6 @@
-
+.post-center {
+    text-align:center;
+}
 
 .author_line {
     display:flex;

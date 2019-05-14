@@ -22,7 +22,7 @@ class Post(models.Model):
     visible = models.BooleanField(default=True)
     publish_at = models.DateTimeField(auto_now=False)
 
-    post_title = models.CharField(max_length=150)
+    post_title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=150)
     post_contents = models.TextField()
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
