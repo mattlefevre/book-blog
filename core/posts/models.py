@@ -6,22 +6,21 @@ from core import settings
 
 # Create your models here.
 
+
 class Book(models.Model):
     isbn = models.CharField(max_length=20)
     author = models.CharField(max_length=50)
     title = models.CharField(max_length=100)
     cover_image = models.ImageField()
 
+
 class Post(models.Model):
     # Automatically-created
-    poster = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        )
+    poster = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     draft_started_datetime = models.DateTimeField(auto_now_add=True, editable=False)
     last_update = models.DateTimeField(auto_now=True, editable=False)
     publish_at = models.DateTimeField(auto_now=True)
-    slug = models.SlugField(max_length=150, default='')
+    slug = models.SlugField(max_length=150, default="")
     visible = models.BooleanField(default=True)
 
     # User-created
@@ -32,10 +31,10 @@ class Post(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
     class Meta:
-        ordering = ['-publish_at']
+        ordering = ["-publish_at"]
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.post_title,self.pk)
+        self.slug = slugify(self.post_title, self.pk)
         super(Post, self).save(*args, **kwargs)
 
     def __str__(self):

@@ -9,33 +9,58 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-    ]
+    dependencies = [migrations.swappable_dependency(settings.AUTH_USER_MODEL)]
 
     operations = [
         migrations.CreateModel(
-            name='Book',
+            name="Book",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('isbn', models.CharField(max_length=20)),
-                ('author', models.CharField(max_length=50)),
-                ('title', models.CharField(max_length=100)),
-                ('cover_image', models.ImageField(upload_to='')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("isbn", models.CharField(max_length=20)),
+                ("author", models.CharField(max_length=50)),
+                ("title", models.CharField(max_length=100)),
+                ("cover_image", models.ImageField(upload_to="")),
             ],
         ),
         migrations.CreateModel(
-            name='Post',
+            name="Post",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('draft_started_datetime', models.DateTimeField(auto_now_add=True)),
-                ('last_update', models.DateTimeField(auto_now=True)),
-                ('visible', models.BooleanField(default=True)),
-                ('date_to_publish', models.DateTimeField()),
-                ('post_title', models.CharField(max_length=75)),
-                ('post_contents', models.TextField()),
-                ('book', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='posts.Book')),
-                ('poster', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("draft_started_datetime", models.DateTimeField(auto_now_add=True)),
+                ("last_update", models.DateTimeField(auto_now=True)),
+                ("visible", models.BooleanField(default=True)),
+                ("date_to_publish", models.DateTimeField()),
+                ("post_title", models.CharField(max_length=75)),
+                ("post_contents", models.TextField()),
+                (
+                    "book",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="posts.Book"
+                    ),
+                ),
+                (
+                    "poster",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]
