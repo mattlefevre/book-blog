@@ -25,9 +25,9 @@ class Post(models.Model):
 
     # User-created
     post_title = models.CharField(max_length=100)
-    synopsis = models.TextField()
+    synopsis = models.TextField(null=True, blank=True)
     post_contents = models.TextField()
-    rating = models.PositiveSmallIntegerField()
+    rating = models.PositiveSmallIntegerField(default=1)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
     class Meta:
