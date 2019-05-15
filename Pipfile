@@ -1,0 +1,19 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "*"
+pylint = "*"
+django-allauth = "*"
+pillow = "*"
+django-taggit = "*"
+pytest-django = "*"
+black = "*"
+django-crispy-forms = "*"
+
+[requires]
+python_version = "3.7"

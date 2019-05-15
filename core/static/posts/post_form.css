@@ -1,0 +1,15 @@
+button {
+    background:    #674ea7;
+    background:    linear-gradient(#674ea7, #161519);
+    border-radius: 5px;
+    padding:       8px 20px;
+    color:         #ffffff;
+    display:       inline-block;
+    text-align:    center;
+    text-shadow:   1px 1px #000000;
+}
+
+
+.buttontest {
+    cursor: pointer; /* "hand" cursor */
+}

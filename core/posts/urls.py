@@ -7,6 +7,7 @@ from posts.views import (
     PostDetailView,
     PostListView,
     PostUpdateView,
+    new_post
     
 )
 
@@ -15,7 +16,7 @@ from posts.views import (
 
 urlpatterns = [
     path("", PostListView.as_view(), name="home"),
-    path("new_post/", login_required(PostCreateView.as_view()), name="new_post"),
+    path("new_post/", login_required(new_post), name="new_post"),
     path("update_post/", login_required(PostUpdateView.as_view()), name="update_post"),
     path("books/", BookListView.as_view(), name="books")
 ]
