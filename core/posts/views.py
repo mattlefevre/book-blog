@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect,reverse
+from django.shortcuts import render, redirect, reverse
 from django.views.generic import (
     CreateView,
     DeleteView,
@@ -14,6 +14,7 @@ from posts.forms import BookForm, PostForm
 class PostCreateView(CreateView):
     model = Post
     fields = ["post_title", "synopsis", "post_contents", "rating", "book"]
+
 
 class PostDeleteView(DeleteView):
     model = Post
@@ -32,14 +33,13 @@ class PostUpdateView(UpdateView):
     model = Post
     fields = ["post_title", "synopsis", "post_contents", "rating", "book"]
 
+
 class BookListView(ListView):
     model = Book
+
 
 def new_post(request):
     post_form = PostForm
     book_form = BookForm
-    context = {
-        "post_form": post_form,
-        "book_form":book_form,
-    }
-    return render(request, 'posts/post_form.html', context=context)
+    context = {"post_form": post_form, "book_form": book_form}
+    return render(request, "posts/post_form.html", context=context)
