@@ -14,6 +14,7 @@
 <h1>Create A New Post</h1>
 <form method="post">
     {% csrf_token %}
+    <!-- ToDo: Manually create form to allow customized file-submit for book image -->
     {{ post_form|crispy}}
     <h3>Some info about the book:</h3>
     <!-- ToDo: Add a "this post isn't about a book" checkbox that hides the book form. -->
