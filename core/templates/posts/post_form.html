@@ -17,7 +17,11 @@
     <!-- ToDo: Manually create form to allow customized file-submit for book image -->
     {{ post_form|crispy}}
     <h3>Some info about the book:</h3>
-    <!-- ToDo: Add a "this post isn't about a book" checkbox that hides the book form. -->
+    <!-- ToDo: Add the JS to this button that hides the book form. -->
+        <div class="formgroup container">
+            <input type="checkbox" name="no_book" class="">
+            <label for="no_book">This Post isn't about a book</label>
+        </div>
     {{ book_form|crispy}}
     <button type="submit">Submit Post</button>
 </form>
