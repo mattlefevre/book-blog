@@ -4,13 +4,16 @@
 
 .author_line {
     display:flex;
-    justify-content: space-between
+    justify-content: space-between;
+
 }
 
 .author_line a{
     flex: 1 1 auto;
+    color:purple;
 }
 
 .author_line time{
-    flex: 2 1 auto;
+    flex: 10 1 auto;
+    font-style: italic;
 }

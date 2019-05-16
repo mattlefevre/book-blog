@@ -1,19 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 <title>Home - All Posts</title>
 {% endblock title %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'posts/post_list.css' %}">
+{% endblock %}
 
 {% block content %}
     <h1 class='post-center'>All Posts</h1>
     {% for post in object_list %}
-        <h3>{{ post.title }}</h3>
+        <h3>{{ post.post_title }}</h3>
         <div class="author_line">
-            <a>{{ post.poster }}</a>
-            <time>{{ post.published_at|date:"d m Y" }}</time>
+            <a href="#">{{ post.poster }}</a>
+            <time>{{ post.publish_at|date:"d M Y" }}</time>
         </div>
-        <h3>{{ post.book }}</h3>
         <p>{{ post.post_contents|truncatechars:200 }}</p>
     {% endfor %}
 {% endblock content %}
