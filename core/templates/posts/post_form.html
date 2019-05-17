@@ -22,7 +22,11 @@
             <input type="checkbox" name="no_book" class="">
             <label for="no_book">This Post isn't about a book</label>
         </div>
-    {{ book_form|crispy}}
+        
+        <div class="notChecked" id="book_form"> 
+            {{ book_form|crispy}}
+        </div>
     <button type="submit">Submit Post</button>
 </form>
+<script src="{% static 'posts/post_form.js' %}"></script>
 {% endblock content %}

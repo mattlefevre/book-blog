@@ -13,3 +13,11 @@ button {
 .buttontest {
     cursor: pointer; /* "hand" cursor */
 }
+
+.checked {
+   display:none;
+}
+
+.notChecked{
+    display: block;
+}
