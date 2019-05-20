@@ -6,4 +6,7 @@
 
 {% block content %}
 <h1>THERE BE BOOKS HERE</h1>
+{% for book in object_list %}
+{{ book.as_p }}
+{% endfor %}
 {% endblock content %}
