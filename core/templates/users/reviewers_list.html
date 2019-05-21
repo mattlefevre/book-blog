@@ -16,7 +16,7 @@
     <a href="{% url 'reviewer' poster poster.pk %}"><h3>{{ poster.username }}</h3></a>
         {% for post in poster.posts %}
         <ul>
-            <h5>{{ post.title }}</h5>
+            <a href="{% url 'review' poster.username post.slug %}"><h5>{{ post.title }}</h5> </a>
         </ul>
         {% endfor %}
     {% endfor %}

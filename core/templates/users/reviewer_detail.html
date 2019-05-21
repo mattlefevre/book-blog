@@ -6,5 +6,10 @@
 {% endblock title %}
 
 {% block content %}
-    {{ poster.username}}
-{% endblock %}
+    <h1>{{ poster.username}}'s Posts</h1>
+    {% for post in poster.post_set.all %}
+    <a href="{% url 'review' poster.username post.slug %}">{{ post.post_title }}</a>
+    {% endfor %}
+
+{% endblock content %}
+

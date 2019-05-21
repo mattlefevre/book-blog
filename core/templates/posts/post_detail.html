@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{ post.post_title|truncatechars:20 }}</title>
+{% endblock title %}
+
+{% block content %}
+<h1>{{post.post_title}}</h1>
+<p>{{ post.post_contents }}</p>
+<!-- NOTE: Need to add image here, based on post.rating -->
+{% endblock content %}
