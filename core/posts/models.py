@@ -12,6 +12,7 @@ class Book(models.Model):
     author = models.CharField(max_length=50)
     title = models.CharField(max_length=100)
     cover_image = models.ImageField()
+    rating = models.PositiveSmallIntegerField(default=1, blank=True)
 
     def __str__(self):
         return self.title
@@ -30,7 +31,6 @@ class Post(models.Model):
     post_title = models.CharField(max_length=100)
     synopsis = models.TextField(null=True, blank=True)
     post_contents = models.TextField()
-    rating = models.PositiveSmallIntegerField(default=1, blank=True)
     book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True)
 
     class Meta:

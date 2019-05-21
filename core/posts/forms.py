@@ -14,3 +14,5 @@ class BookForm(ModelForm):
         fields = ["author", "title", "cover_image", "isbn"]
 
         widgets = {"cover_image": FileInput(attrs={"class": "buttontest"})}
+
+        
