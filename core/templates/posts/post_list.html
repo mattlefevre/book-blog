@@ -12,7 +12,7 @@
 {% block content %}
     <h1 class='post-center'>All Posts</h1>
     {% for post in object_list %}
-        <a href="{% url 'review' post.poster post.slug %}"><h3>{{ post.post_title }}</h3></a>
+        <a class="title" href="{% url 'review' post.poster post.slug %}"><h3>{{ post.post_title }}</h3></a>
         <div class="author_line">
             <a href="{% url 'reviewer' post.poster post.poster.pk %}">{{ post.poster }}</a>
             <time>{{ post.publish_at|date:"d M Y" }}</time>

@@ -17,3 +17,7 @@
     flex: 10 1 auto;
     font-style: italic;
 }
+
+.title {
+    color: purple;
+}

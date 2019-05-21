@@ -5,10 +5,14 @@
 <title>{{ poster.username }}'s posts</title>
 {% endblock title %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'users/reviewer_detail.css' %}">
+{% endblock stylesheet %}
+
 {% block content %}
     <h1>{{ poster.username}}'s Posts</h1>
     {% for post in poster.post_set.all %}
-    <a href="{% url 'review' poster.username post.slug %}">{{ post.post_title }}</a>
+    <a class="reviewer" href="{% url 'review' poster.username post.slug %}">{{ post.post_title }}</a>
     {% endfor %}
 
 {% endblock content %}
