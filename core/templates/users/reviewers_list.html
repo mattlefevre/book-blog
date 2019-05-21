@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
+{% load static  %}
 
 {% block title %}
 <title>All Reviewers</title>
 {% endblock title %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'users/reviewer_list.css' %}">
+{% endblock stylesheet %}
+
 {% block content %}
     <h1>All Reviewers:</h1>
 
     {% for poster in object_list %}
-        <h3>{{ poster.username }}</h3>
+    <a href="{% url 'reviewer' poster poster.pk %}"><h3>{{ poster.username }}</h3></a>
         {% for post in poster.posts %}
         <ul>
-            <h5><a href="{% url 'individual_post' post.slug %}">{{ post.title }}</a></h5>
+            <h5>{{ post.title }}</h5>
         </ul>
         {% endfor %}
     {% endfor %}

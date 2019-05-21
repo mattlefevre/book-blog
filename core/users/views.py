@@ -10,3 +10,5 @@ class PostersListView(ListView):
 
 class PosterDetailView(DetailView):
     model = CustomUser
+    template_name = "users/reviewer_detail.html"
+    context_object_name = "poster"

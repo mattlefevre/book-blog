@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{ poster.username }}'s posts</title>
+{% endblock title %}
+
+{% block content %}
+    {{ poster.username}}
+{% endblock %}
