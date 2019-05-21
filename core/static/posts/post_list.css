@@ -19,5 +19,9 @@
 }
 
 .title {
-    color: purple;
+    color: purple;   
+}
+
+.title:hover {
+    color:purple;
 }

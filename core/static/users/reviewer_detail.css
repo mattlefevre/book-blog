@@ -1,3 +1,7 @@
 .reviewer {
     color: purple;
 }
+
+.reviewer:hover {
+    color:purple;
+}
