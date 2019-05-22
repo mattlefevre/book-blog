@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "crispy_forms",
+    "rest_framework",
     # Local
     "users.apps.UsersConfig",
     "posts.apps.PostsConfig",
