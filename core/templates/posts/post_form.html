@@ -15,13 +15,13 @@
 <form method="post">
     {% csrf_token %}
     {{ form.non_field_errors }}
-    <div>
+    <div class="form-group">
         {{ form.post_title.errors }}
         <label for="{{ form.post_title.id_for_label }}">{{ form.post_title.label_tag }}</label>
         {{ form.post_title }}
     </div>
     
-    <div>
+    <div  class="form-group">
         {{ form.post_contents.errors }}
         <label for="{{ form.post_contents.id_for_label }}">{{ form.post_contents.label_tag }}</label>
         {{ form.post_contents }}
@@ -31,11 +31,11 @@
     <input type="checkbox" name="no_book" id="notABook">
     <label for="notABook">This post isn't about a book</label>
     
-    <div>
+    <div  class="form-group">
         {{ form.author.errors }}
         <label for="{{ form.author.id_for_label }}">{{ form.author.label_tag }}</label>
         {{ form.author }}
-    </div>
+    </div  class="form-group">
     
     <div>
         {{ form.title.errors }}
@@ -43,39 +43,30 @@
         {{ form.title }}
     </div>
     
-    <div>
+    <div  class="form-group">
         {{ form.isbn.errors }}
         <label for="{{ form.isbn.id_for_label }}">{{ form.isbn.label_tag }}</label>
         {{ form.isbn }}
     </div>
-    <div>
+    <div  class="form-group">
         {{ form.cover_image.errors }}
         <label for="{{ form.cover_image.id_for_label }}">{{ form.cover_image.label_tag }}</label>
         {{ form.cover_image }}
     </div>
 
-    <div>
+    <div  class="form-group">
         {{ form.synopsis.errors }}
         <label for="{{ form.synopsis.id_for_label }}">{{ form.synopsis.label_tag }}</label>
         {{ form.synopsis }}
     </div>
-    <div>
+    <div  class="form-group">
         {{ form.rating.errors }}
         <label for="{{ form.rating.id_for_label }}">{{ form.rating.label_tag }}</label>
         {{ form.rating }}
     </div>
-  
-    {{ form. }}
-    {{ form. }}
-
-    {{ form. }}
-    {{ form. }}
-    {{ form. }}
-    {{ form. }}
-    {{ form. }}
-    {{ form. }}
 
     <button type="submit">Submit Post</button>
 </form>
+
 <script src="{% static 'posts/post_form.js' %}"></script>
 {% endblock content %}

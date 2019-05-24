@@ -21,13 +21,14 @@ class BookForm(forms.ModelForm):
 
 class PostAndBookForm(forms.Form):
     # Post
-    post_title = forms.CharField(label="Post Title", max_length=100)
-    post_contents = forms.CharField(label="Post Contents", widget=forms.Textarea)
+    post_title = forms.CharField(label="Post Title", max_length=100, widget=forms.TextInput(attrs={"class":"form-control"}))
+    post_contents = forms.CharField(label="Post Contents", widget=forms.Textarea(attrs={"class":"form-control"}))
     # Book
-    author = forms.CharField(label="Author", max_length=50)
-    title = forms.CharField(label="Book's Title", max_length=100)
-    isbn = forms.CharField(max_length=20)
-    cover_image = forms.ImageField()
-    synopsis = forms.CharField(label="Synopsis", required=False, widget=forms.Textarea)
+    author = forms.CharField(label="Author", max_length=50, widget=forms.TextInput(attrs={"class":"form-control"}))
+    title = forms.CharField(label="Book's Title", max_length=100, widget=forms.TextInput(attrs={"class":"form-control"}))
+    isbn = forms.CharField(max_length=20, widget=forms.TextInput(attrs={"class":"form-control"}))
+    cover_image = forms.ImageField(widget=forms.ClearableFileInput(attrs={"class":"form-control-file"}))
+    synopsis = forms.CharField(label="Synopsis", required=False, widget=forms.Textarea(attrs={"class":"form-control"}))
     rating = forms.CharField(label="Rating",
-        widget=forms.Select(choices=((1,1),(2,2),(3,3),(4,4),(5,5))), required=False)
+        widget=forms.Select(choices=((1,1),(2,2),(3,3),(4,4),(5,5)),attrs={"class":"form-control"}), required=False)
+
