@@ -5,10 +5,12 @@ from django.views.generic import (
     DetailView,
     ListView,
     UpdateView,
+    FormView,
 )
 
 from posts.models import Book, Post
-from posts.forms import BookForm, PostForm
+from posts.forms import BookForm, PostForm, PostAndBookForm
+from posts.services import create_post_and_book
 
 # Create your views here.
 class PostCreateView(CreateView):
@@ -38,33 +40,21 @@ class BookListView(ListView):
     model = Book
 
 
-def new_post(request):
+def new_post_view(request):
     if request.method == "POST":
         post_form = PostForm(request.POST, prefix="post_form")
         book_form = BookForm(request.POST, prefix="book_form")
         
-        if book_form.is_valid():
-            book = Book()
-            if book_form["author"] is None:
-                pass
-                # post the post_form
-            elif book_form["author"] is not None:
-                # do book stuff
-                if post_form.is_valid():
-                    post = Post()
-                    post.post_title = post_form["post_title"]
-                    post.post_contents = post_form["post_contents"]
-                    # book - book from above
-                else:
-                    book = None
-                    #return an error - you can't post a book form if the book is wrong
-            # return 
-        if post_form.is_valid() and book is None:
-            pass
-            # add logic for a non-book post
+        if post_form.is_valid() and book_form.is_valid():
+            create_post_and_book(post=post_form, book=book_form)
+
     else:
         post_form = PostForm(prefix="post_form")
         book_form = BookForm(prefix="book_form")
         context = {"post_form": post_form, "book_form": book_form}
     return render(request, "posts/post_form.html", context=context)
 
+class NewPostAndBookView(FormView):
+    template_name = "posts/post_form.html"
+    form_class = PostAndBookForm
+    success_url = '/'

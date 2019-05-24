@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils.text import slugify
 
 from core import settings
@@ -8,11 +9,12 @@ from core import settings
 
 
 class Book(models.Model):
-    isbn = models.CharField(max_length=20)
+    isbn = models.CharField(max_length=20, blank=True)
     author = models.CharField(max_length=50)
     title = models.CharField(max_length=100)
-    cover_image = models.ImageField()
-    rating = models.PositiveSmallIntegerField(default=1, blank=True)
+    synopsis = models.TextField(null=True, blank=True)
+    cover_image = models.ImageField(blank=True)
+    rating = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(5)], blank=True)
 
     def __str__(self):
         return self.title
@@ -29,7 +31,6 @@ class Post(models.Model):
 
     # User-created
     post_title = models.CharField(max_length=100)
-    synopsis = models.TextField(null=True, blank=True)
     post_contents = models.TextField()
     book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True)
 

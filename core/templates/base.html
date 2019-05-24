@@ -34,14 +34,14 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <a class="main-nav-links nav-link" href="{% url 'home' %}">Home</a>
+                <a class="main-nav-links nav-link" href="{% url 'posts:home' %}">Home</a>
                 <!-- TODO: Update ?POSTS? To link to something else -->
-                <a class="main-nav-links nav-link" href="{% url 'reviewers' %}">Reviewers</a>
-                <a class="main-nav-links nav-link" href="{% url 'books' %}">Books</a>
+                <a class="main-nav-links nav-link" href="{% url 'users:reviewers' %}">Reviewers</a>
+                <a class="main-nav-links nav-link" href="{% url 'posts:books' %}">Books</a>
             </div>
             <div class="collapse navbar-collapse col-md-7" id="navbarNavAltMarkup">
                 {% if user.is_authenticated %}
-                    <a class="main-nav-links nav-item nav-link" href="{% url 'new_post' %}">Create a Post</a>
+                    <a class="main-nav-links nav-item nav-link" href="{% url 'posts:new_post' %}">Create a Post</a>
                     <a class="main-nav-links nav-item nav-link" href="#">View Your Posts</a>
                     <a class="main-nav-links nav-item nav-link" href="{% url 'account_logout' %}">Log Out</a>
                 {% else %}

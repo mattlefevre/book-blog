@@ -14,18 +14,67 @@
 <h1>Create A New Post</h1>
 <form method="post">
     {% csrf_token %}
-    <!-- ToDo: Manually create form to allow customized file-submit for book image -->
-    {{ post_form|crispy}}
-    <h3>Some info about the book:</h3>
-    <!-- ToDo: Add the JS to this button that hides the book form. -->
-        <div class="formgroup container">
-            <input type="checkbox" name="no_book" class="">
-            <label for="no_book">This Post isn't about a book</label>
-        </div>
-        
-        <div class="notChecked" id="book_form"> 
-            {{ book_form|crispy}}
-        </div>
+    {{ form.non_field_errors }}
+    <div>
+        {{ form.post_title.errors }}
+        <label for="{{ form.post_title.id_for_label }}">{{ form.post_title.label_tag }}</label>
+        {{ form.post_title }}
+    </div>
+    
+    <div>
+        {{ form.post_contents.errors }}
+        <label for="{{ form.post_contents.id_for_label }}">{{ form.post_contents.label_tag }}</label>
+        {{ form.post_contents }}
+    </div>
+    <!-- Book Information -->
+    <h3>Some information about the book:</h3>
+    <input type="checkbox" name="no_book" id="notABook">
+    <label for="notABook">This post isn't about a book</label>
+    
+    <div>
+        {{ form.author.errors }}
+        <label for="{{ form.author.id_for_label }}">{{ form.author.label_tag }}</label>
+        {{ form.author }}
+    </div>
+    
+    <div>
+        {{ form.title.errors }}
+        <label for="{{ form.title.id_for_label }}">{{ form.title.label_tag }}</label>
+        {{ form.title }}
+    </div>
+    
+    <div>
+        {{ form.isbn.errors }}
+        <label for="{{ form.isbn.id_for_label }}">{{ form.isbn.label_tag }}</label>
+        {{ form.isbn }}
+    </div>
+    <div>
+        {{ form.cover_image.errors }}
+        <label for="{{ form.cover_image.id_for_label }}">{{ form.cover_image.label_tag }}</label>
+        {{ form.cover_image }}
+    </div>
+
+    <div>
+        {{ form.synopsis.errors }}
+        <label for="{{ form.synopsis.id_for_label }}">{{ form.synopsis.label_tag }}</label>
+        {{ form.synopsis }}
+    </div>
+    <div>
+        {{ form.rating.errors }}
+        <label for="{{ form.rating.id_for_label }}">{{ form.rating.label_tag }}</label>
+        {{ form.rating }}
+    </div>
+  
+    {{ form. }}
+    {{ form. }}
+
+    {{ form. }}
+    {{ form. }}
+    {{ form. }}
+    {{ form. }}
+    {{ form. }}
+    {{ form. }}
+
     <button type="submit">Submit Post</button>
 </form>
 <script src="{% static 'posts/post_form.js' %}"></script>
