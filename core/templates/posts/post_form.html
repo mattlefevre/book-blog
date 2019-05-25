@@ -17,52 +17,57 @@
     {{ form.non_field_errors }}
     <div class="form-group">
         {{ form.post_title.errors }}
-        <label for="{{ form.post_title.id_for_label }}">{{ form.post_title.label_tag }}</label>
+        {{ form.post_title.label_tag }}
         {{ form.post_title }}
     </div>
     
     <div  class="form-group">
         {{ form.post_contents.errors }}
-        <label for="{{ form.post_contents.id_for_label }}">{{ form.post_contents.label_tag }}</label>
+        {{ form.post_contents.label_tag }}
         {{ form.post_contents }}
     </div>
     <!-- Book Information -->
     <h3>Some information about the book:</h3>
-    <input type="checkbox" name="no_book" id="notABook">
-    <label for="notABook">This post isn't about a book</label>
-    
-    <div  class="form-group">
-        {{ form.author.errors }}
-        <label for="{{ form.author.id_for_label }}">{{ form.author.label_tag }}</label>
-        {{ form.author }}
+    <div  class="form-check">
+        {{ form.book_check }}
+        {{ form.book_check.errors }}
+        {{ form.book_check.label_tag }}
     </div  class="form-group">
     
-    <div>
-        {{ form.title.errors }}
-        <label for="{{ form.title.id_for_label }}">{{ form.title.label_tag }}</label>
-        {{ form.title }}
-    </div>
-    
-    <div  class="form-group">
-        {{ form.isbn.errors }}
-        <label for="{{ form.isbn.id_for_label }}">{{ form.isbn.label_tag }}</label>
-        {{ form.isbn }}
-    </div>
-    <div  class="form-group">
-        {{ form.cover_image.errors }}
-        <label for="{{ form.cover_image.id_for_label }}">{{ form.cover_image.label_tag }}</label>
-        {{ form.cover_image }}
-    </div>
+    <div id="book_check">
+        <div  class="form-group" >
+            {{ form.author.errors }}
+            {{ form.author.label_tag }}
+            {{ form.author }}
+        </div>
+        
+        <div class="form-group">
+            {{ form.title.errors }}
+            {{ form.title.label_tag }}
+            {{ form.title }}
+        </div>
+        
+        <div  class="form-group">
+            {{ form.isbn.errors }}
+            {{ form.isbn.label_tag }}
+            {{ form.isbn }}
+        </div>
+        <div  class="form-group">
+            {{ form.cover_image.errors }}
+            {{ form.cover_image.label_tag }}
+            {{ form.cover_image }}
+        </div>
 
-    <div  class="form-group">
-        {{ form.synopsis.errors }}
-        <label for="{{ form.synopsis.id_for_label }}">{{ form.synopsis.label_tag }}</label>
-        {{ form.synopsis }}
-    </div>
-    <div  class="form-group">
-        {{ form.rating.errors }}
-        <label for="{{ form.rating.id_for_label }}">{{ form.rating.label_tag }}</label>
-        {{ form.rating }}
+        <div  class="form-group">
+            {{ form.synopsis.errors }}
+            {{ form.synopsis.label_tag }}
+            {{ form.synopsis }}
+        </div>
+        <div  class="form-group">
+            {{ form.rating.errors }}
+            {{ form.rating.label_tag }}
+            {{ form.rating }}
+        </div>
     </div>
 
     <button type="submit">Submit Post</button>

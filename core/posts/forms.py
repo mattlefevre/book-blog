@@ -23,6 +23,8 @@ class PostAndBookForm(forms.Form):
     # Post
     post_title = forms.CharField(label="Post Title", max_length=100, widget=forms.TextInput(attrs={"class":"form-control"}))
     post_contents = forms.CharField(label="Post Contents", widget=forms.Textarea(attrs={"class":"form-control"}))
+    # Book-Check
+    book_check = forms.BooleanField(required=False, label="This post isn't about a book", widget=forms.CheckboxInput(attrs={"class":"form-check-input"}))
     # Book
     author = forms.CharField(label="Author", max_length=50, widget=forms.TextInput(attrs={"class":"form-control"}))
     title = forms.CharField(label="Book's Title", max_length=100, widget=forms.TextInput(attrs={"class":"form-control"}))
