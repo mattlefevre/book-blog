@@ -9,11 +9,11 @@ from core import settings
 
 
 class Book(models.Model):
-    isbn = models.CharField(max_length=20, blank=True)
     author = models.CharField(max_length=50)
     title = models.CharField(max_length=100)
     synopsis = models.TextField(null=True, blank=True)
     cover_image = models.ImageField(blank=True)
+    isbn = models.CharField(max_length=20, blank=True)
     rating = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(5)], blank=True)
 
     def __str__(self):
