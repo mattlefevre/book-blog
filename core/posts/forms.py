@@ -1,5 +1,6 @@
 from django import forms
 from posts.models import Book, Post
+from posts.services import no_book_check, create_post_and_book
 
 
 class PostForm(forms.ModelForm):
@@ -34,3 +35,9 @@ class PostAndBookForm(forms.Form):
     rating = forms.CharField(required=False, label="Rating",
         widget=forms.Select(choices=((1,1),(2,2),(3,3),(4,4),(5,5)),attrs={"class":"form-control"}))
 
+    # Form Validation, Cleaning, and DB Subitting
+    def clean(self):
+        cleaned_data = super().clean()
+        print(self.cleaned_data["book_check"])
+        if self.cleaned_data["book_check"] == False and no_book_check(form=self.cleaned_data):
+            raise forms.ValidationError("You need to either check the 'This post isn't about a book' box or include book informaiton.")

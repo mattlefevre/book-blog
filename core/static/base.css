@@ -19,3 +19,9 @@ header {
 #nav-burger {
     color:white;
 }
+
+.errorlist{
+    color:red;
+    list-style-type: none;
+    font-weight: bold;
+}

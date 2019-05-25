@@ -58,3 +58,9 @@ class NewPostAndBookView(FormView):
     template_name = "posts/post_form.html"
     form_class = PostAndBookForm
     success_url = '/'
+
+    def form_valid(self, form):
+        user = self.request.user
+        print(user)
+        create_post_and_book(form=form, user=user)
+        return super().form_valid(form)

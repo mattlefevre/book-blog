@@ -11,10 +11,10 @@ from core import settings
 class Book(models.Model):
     author = models.CharField(max_length=50)
     title = models.CharField(max_length=100)
-    synopsis = models.TextField(null=True, blank=True)
-    cover_image = models.ImageField(blank=True)
-    isbn = models.CharField(max_length=20, blank=True)
-    rating = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(5)], blank=True)
+    synopsis = models.TextField(blank=True, null=True)
+    cover_image = models.ImageField(blank=True, null=True)
+    isbn = models.CharField(max_length=20, blank=True, null=True)
+    rating = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(5)], blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -32,7 +32,7 @@ class Post(models.Model):
     # User-created
     post_title = models.CharField(max_length=100)
     post_contents = models.TextField()
-    book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
         ordering = ["-publish_at"]
