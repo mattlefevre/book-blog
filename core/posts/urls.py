@@ -19,6 +19,6 @@ urlpatterns = [
     path("new_post/", login_required(NewPostAndBookView.as_view()), name="new_post"),
     # NOTE: I should be able to leave the update_post page as a PostUpdateView because
     # I won't ever need to update which book it's about.
-    path("update_post/", login_required(PostUpdateView.as_view()), name="update_post"),
+    path("update_post/<str:slug>", login_required(PostUpdateView.as_view()), name="update_post"),
     path("books/", BookListView.as_view(), name="books"),
 ]

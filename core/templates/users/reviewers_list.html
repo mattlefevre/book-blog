@@ -13,10 +13,10 @@
     <h1>All Reviewers:</h1>
 
     {% for poster in object_list %}
-    <a class="reviewer" href="{% url 'reviewer' poster poster.pk %}"><h3>{{ poster.username }}</h3></a>
+    <a class="reviewer" href="{% url 'users:individual_reviewer' poster.pk poster.username %}"><h3>{{ poster.username }}</h3></a>
         {% for post in poster.posts %}
         <ul>
-            <a href="{% url 'review' poster.username post.slug %}"><h5>{{ post.title }}</h5> </a>
+            <a href="{% url 'posts:review' poster.username post.slug %}"><li>{{ post.title }}</li> </a>
         </ul>
         {% endfor %}
     {% endfor %}

@@ -5,5 +5,5 @@ app_name = "users"
 
 urlpatterns = [
     path('', PostersListView.as_view(), name='reviewers'),
-    path('<str:username>-<int:pk>', PosterDetailView.as_view(), name='reviewer'),
+    path('<int:pk>/<str:username>', PosterDetailView.as_view(), name='individual_reviewer'),
 ]

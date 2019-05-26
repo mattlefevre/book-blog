@@ -5,3 +5,7 @@
 .reviewer:hover {
     color:purple;
 }
+
+.bookTitle {
+    font-style: italic;
+}

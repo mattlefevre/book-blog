@@ -40,20 +40,6 @@ class BookListView(ListView):
     model = Book
 
 
-def new_post_view(request):
-    if request.method == "POST":
-        post_form = PostForm(request.POST, prefix="post_form")
-        book_form = BookForm(request.POST, prefix="book_form")
-        
-        if post_form.is_valid() and book_form.is_valid():
-            create_post_and_book(post=post_form, book=book_form)
-
-    else:
-        post_form = PostForm(prefix="post_form")
-        book_form = BookForm(prefix="book_form")
-        context = {"post_form": post_form, "book_form": book_form}
-    return render(request, "posts/post_form.html", context=context)
-
 class NewPostAndBookView(FormView):
     template_name = "posts/post_form.html"
     form_class = PostAndBookForm
