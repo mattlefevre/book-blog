@@ -120,7 +120,7 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-LOGIN_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "posts:home"
 ACCOUT_LOGOUT_REDIRECT_URL = "home"
 
 SITE_ID = 1

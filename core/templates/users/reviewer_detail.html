@@ -16,12 +16,11 @@
     <h1>{{ poster.username}}'s Posts</h1>
     {% endif %}
     {% for post in poster.post_set.all %}
-    <div><a class="reviewer" href="{% url 'posts:review' poster.username post.slug %}">{{ post.post_title }}</a>: 
+    <div><a class="reviewer" href="{% url 'posts:review' poster.username post.slug %}">{{ post.post_title }}</a>
         {% if post.book %}
-        <span class="bookTitle">{{post.book.title}}</span> by {{post.book.author}}
+        : <span class="bookTitle">{{post.book.title}}</span> by {{post.book.author}}
         {% endif %}    
     </div>
     {% endfor %}
 
 {% endblock content %}
-

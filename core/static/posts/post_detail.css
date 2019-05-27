@@ -1,0 +1,45 @@
+.poster {
+    color: purple;
+}
+
+.poster:link {
+    color: purple;
+}
+.poster:hover {
+    color: purple;
+}
+
+.poster:visited {
+    color: purple;
+}
+
+.title {
+    font-style: italic;
+    color: purple;
+}
+
+.title:link {
+    color: purple;
+}
+
+.title:hover {
+    color: purple;
+}
+
+title:visited {
+    color: purple;
+}
+
+.synopsis {
+    font-style: italic;
+}
+
+.synopsisHeader {
+    font-style: italic;
+    text-align: center;
+}
+
+.reviewHeader {
+    text-align: center;
+}
+

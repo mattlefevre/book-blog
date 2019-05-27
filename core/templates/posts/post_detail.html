@@ -5,8 +5,28 @@
 <title>{{ post.post_title|truncatechars:20 }}</title>
 {% endblock title %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'posts/post_detail.css' %}">
+{% endblock stylesheet %}
+
 {% block content %}
 <h1>{{post.post_title}}</h1>
+<h5>by <a class="poster" href="{% url 'users:individual_reviewer' post.poster.pk post.poster.username %}">{{ post.poster.username }}</a> | <time>{{ post.publish_at|date:"d M Y" }}</time></h5>
+
+{% if post.book %}
+    <h5><span class="title">{{post.book.title}}</span> by {{ post.book.author}}</h5>
+    <hr>
+    {% if post.book.synopsis %}
+    <div>
+    <h3 class="synopsisHeader">Synopsis</h3>
+    <p class="synopsis">{{ post.book.synopsis }}</p>
+    </div>
+
+    <h3 class="reviewHeader">Review</h3>
+    {% endif %}
+{% else %}
+<hr>
+{% endif %}
 <p>{{ post.post_contents }}</p>
 <!-- NOTE: Need to add image here, based on post.rating -->
 {% endblock content %}
