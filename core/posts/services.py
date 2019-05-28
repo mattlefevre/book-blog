@@ -3,7 +3,11 @@ ORM objects. """
 from posts.models import Book, Post
 from django import forms
 # from posts.forms import PostAndBookForm
- 
+
+def book_excluded_check(*, form:"BookForm"):
+    if form['author'] == "" and form['title'] == "":
+        return True
+    return False
 
 def no_book_check(*, form:"PostAndBookForm"):
     if form['author'] == "":

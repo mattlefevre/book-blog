@@ -3,6 +3,21 @@ header {
     justify-content: center;
 }
 
+
+footer {
+    margin-top: 2em;
+    padding: 10px;
+    background-color: purple;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo {
+    max-height: 500px;
+
+}
+
 .main-nav-links {
     color:white;
 }

@@ -43,3 +43,13 @@ title:visited {
     text-align: center;
 }
 
+.updateLinks {
+    display: flex;
+    justify-content: space-around;
+}
+
+.updateLinks a{
+    color:purple;
+    font-weight: 700;
+    text-decoration: underline;
+}

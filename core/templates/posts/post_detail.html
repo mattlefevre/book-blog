@@ -29,4 +29,14 @@
 {% endif %}
 <p>{{ post.post_contents }}</p>
 <!-- NOTE: Need to add image here, based on post.rating -->
+{% if user.pk == post.poster.pk %}
+<div class="updateLinks">
+    <a class="changeLink" href="{% url 'posts:update_post' post.poster.username post.slug %}">Update Post</a>
+    {% if post.book %}
+        <a href="{% url 'posts:update_book' post.book.pk %}">Update Book</a>
+    {% endif %}
+    <a href="{% url 'posts:delete_post' post.slug post.pk %}">Delete Post</a>
+</div>
+{% endif %}
+
 {% endblock content %}

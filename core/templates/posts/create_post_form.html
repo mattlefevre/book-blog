@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+<title class='mt-5'>Create New Post</title>
+{% endblock title %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'posts/post_form.css' %}">
+{% endblock stylesheet %}
+
+{% block content %}
+<h1>Create A New Post</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="form-group">
+        {{ form.post_title.errors }}
+        {{ form.post_title.label_tag }}
+        {{ form.post_title }}
+    </div>
+    
+    <div  class="form-group">
+        {{ form.post_contents.errors }}
+        {{ form.post_contents.label_tag }}
+        {{ form.post_contents }}
+    </div>
+    <!-- Book Information -->
+    <h3>Some information about the book:</h3>
+    <div  class="form-check">
+        {{ form.book_check }}
+        {{ form.book_check.errors }}
+        {{ form.book_check.label_tag }}
+    </div  class="form-group">
+    
+    <div id="book_check">
+        <div  class="form-group" >
+            {{ form.author.errors }}
+            {{ form.author.label_tag }}
+            {{ form.author }}
+        </div>
+        
+        <div class="form-group">
+            {{ form.title.errors }}
+            {{ form.title.label_tag }}
+            {{ form.title }}
+        </div>
+        
+        <div  class="form-group">
+            {{ form.isbn.errors }}
+            {{ form.isbn.label_tag }}
+            {{ form.isbn }}
+        </div>
+        <div  class="form-group">
+            {{ form.cover_image.errors }}
+            {{ form.cover_image.label_tag }}
+            {{ form.cover_image }}
+        </div>
+
+        <div  class="form-group">
+            {{ form.synopsis.errors }}
+            {{ form.synopsis.label_tag }}
+            {{ form.synopsis }}
+        </div>
+        <div  class="form-group">
+            {{ form.rating.errors }}
+            {{ form.rating.label_tag }}
+            {{ form.rating }}
+        </div>
+    </div>
+
+    <button type="submit" method="POST">Submit Post</button>
+</form>
+
+<script src="{% static 'posts/post_form.js' %}"></script>
+{% endblock content %}

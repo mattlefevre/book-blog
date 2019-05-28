@@ -16,7 +16,7 @@ class BookForm(forms.ModelForm):
         fields = ["author", "title", "isbn", "cover_image", "synopsis", "rating"]
         widgets = {
             "cover_image": forms.FileInput(attrs={"class": "buttontest"}),
-            "rating": forms.RadioSelect(choices=(1,2,3,4,5))
+            "rating": forms.Select(choices=((1,1),(2,2),(3,3),(4,4),(5,5)))
         }
 
 
