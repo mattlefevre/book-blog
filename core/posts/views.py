@@ -16,13 +16,21 @@ from posts.services import create_post_and_book, book_excluded_check, no_book_ch
 # Create your views here.
 class PostCreateView(CreateView):
     model = Post
-    fields = ["post_title", "post_contents", "book.author", "book.title", "book.synopsis",
-    "book.cover_image", "book.isbn", "book.rating"]
+    fields = [
+        "post_title",
+        "post_contents",
+        "book.author",
+        "book.title",
+        "book.synopsis",
+        "book.cover_image",
+        "book.isbn",
+        "book.rating",
+    ]
 
 
 class PostDeleteView(DeleteView):
     model = Post
-    success_url = reverse_lazy('posts:home')
+    success_url = reverse_lazy("posts:home")
 
 
 class PostDetailView(DetailView):
@@ -35,21 +43,23 @@ class PostListView(ListView):
 
 
 class PostUpdateView(UpdateView):
-    
+
     model = Post
     form_class = PostForm
-    success_url = reverse_lazy('posts:home')
+    success_url = reverse_lazy("posts:home")
 
     def get_context_data(self, **kwargs):
-        context= super().get_context_data(**kwargs)
-        context['book'] = self.object.book
+        context = super().get_context_data(**kwargs)
+        context["book"] = self.object.book
         return context
+
 
 class BookUpdateView(UpdateView):
 
     model = Book
     form_class = BookForm
-    success_url = reverse_lazy('posts:home')
+    success_url = reverse_lazy("posts:home")
+
 
 class BookListView(ListView):
     model = Book
@@ -58,7 +68,7 @@ class BookListView(ListView):
 class NewPostAndBookView(FormView):
     template_name = "posts/create_post_form.html"
     form_class = PostAndBookForm
-    success_url = '/'
+    success_url = "/"
 
     def form_valid(self, form):
         user = self.request.user

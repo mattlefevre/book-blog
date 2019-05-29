@@ -4,9 +4,11 @@ from users.models import CustomUser
 
 # Create your views here.
 
+
 class PostersListView(ListView):
     model = CustomUser
     template_name = "users/reviewers_list.html"
+
 
 class PosterDetailView(DetailView):
     model = CustomUser

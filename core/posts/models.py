@@ -14,7 +14,12 @@ class Book(models.Model):
     synopsis = models.TextField(blank=True, null=True)
     cover_image = models.ImageField(blank=True, null=True)
     isbn = models.CharField(max_length=20, blank=True, null=True)
-    rating = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(5)], blank=True, null=True)
+    rating = models.PositiveSmallIntegerField(
+        default=1,
+        validators=[MinValueValidator(1), MaxValueValidator(5)],
+        blank=True,
+        null=True,
+    )
 
     def __str__(self):
         return self.title

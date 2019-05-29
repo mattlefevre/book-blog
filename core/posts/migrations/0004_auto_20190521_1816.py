@@ -6,23 +6,20 @@ import django.db.models.deletion
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('posts', '0003_auto_20190514_1246'),
-    ]
+    dependencies = [("posts", "0003_auto_20190514_1246")]
 
     operations = [
-        migrations.RemoveField(
-            model_name='post',
-            name='rating',
-        ),
+        migrations.RemoveField(model_name="post", name="rating"),
         migrations.AddField(
-            model_name='book',
-            name='rating',
+            model_name="book",
+            name="rating",
             field=models.PositiveSmallIntegerField(blank=True, default=1),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='book',
-            field=models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='posts.Book'),
+            model_name="post",
+            name="book",
+            field=models.ForeignKey(
+                blank=True, on_delete=django.db.models.deletion.CASCADE, to="posts.Book"
+            ),
         ),
     ]

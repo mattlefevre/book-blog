@@ -6,24 +6,29 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('posts', '0005_auto_20190522_2014'),
-    ]
+    dependencies = [("posts", "0005_auto_20190522_2014")]
 
     operations = [
         migrations.AlterField(
-            model_name='book',
-            name='cover_image',
-            field=models.ImageField(blank=True, upload_to=''),
+            model_name="book",
+            name="cover_image",
+            field=models.ImageField(blank=True, upload_to=""),
         ),
         migrations.AlterField(
-            model_name='book',
-            name='isbn',
+            model_name="book",
+            name="isbn",
             field=models.CharField(blank=True, max_length=20),
         ),
         migrations.AlterField(
-            model_name='book',
-            name='rating',
-            field=models.PositiveSmallIntegerField(blank=True, default=1, validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(5)]),
+            model_name="book",
+            name="rating",
+            field=models.PositiveSmallIntegerField(
+                blank=True,
+                default=1,
+                validators=[
+                    django.core.validators.MinValueValidator(1),
+                    django.core.validators.MaxValueValidator(5),
+                ],
+            ),
         ),
     ]

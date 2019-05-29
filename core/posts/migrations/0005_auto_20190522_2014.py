@@ -5,18 +5,13 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('posts', '0004_auto_20190521_1816'),
-    ]
+    dependencies = [("posts", "0004_auto_20190521_1816")]
 
     operations = [
-        migrations.RemoveField(
-            model_name='post',
-            name='synopsis',
-        ),
+        migrations.RemoveField(model_name="post", name="synopsis"),
         migrations.AddField(
-            model_name='book',
-            name='synopsis',
+            model_name="book",
+            name="synopsis",
             field=models.TextField(blank=True, null=True),
         ),
     ]
