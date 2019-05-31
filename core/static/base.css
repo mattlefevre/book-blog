@@ -6,7 +6,8 @@
   }
 
 body {
-    background-color: yellow;
+    background-color: black;
+    font-family: 'Cinzel', serif;
 }
 
     /* link styling */
@@ -80,7 +81,10 @@ body {
 }
 
 .divider {
-    border: 3px solid purple;
+    height: 8px;
+    background-color: purple;
+    border: 1px solid darkgray;
+    border-radius: 5px;
 }
 
 /* end all stuff */
@@ -120,7 +124,7 @@ body {
 
     background-color:purple;
     color:white;
-    border: 1px #BA95F7 solid;
+    border: 1px darkgray solid;
 
     display: flex;
     justify-content: space-around;
@@ -157,6 +161,7 @@ body {
 
     background-color: purple;
     color: white;
+    border: 1px darkgray solid;
 
     display: flex;
     justify-content: space-around;
