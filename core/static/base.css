@@ -125,6 +125,7 @@ body {
     background-color:purple;
     color:white;
     border: 1px darkgray solid;
+    border-radius: 5px;
 
     display: flex;
     justify-content: space-around;
@@ -162,6 +163,7 @@ body {
     background-color: purple;
     color: white;
     border: 1px darkgray solid;
+    border-radius: 5px;
 
     display: flex;
     justify-content: space-around;
