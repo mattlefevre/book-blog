@@ -25,3 +25,8 @@
 .title:hover {
     color:purple;
 }
+
+.divider {
+    border: 5px solid purple;
+    border-radius: 5px;
+}
