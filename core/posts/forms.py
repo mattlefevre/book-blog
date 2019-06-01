@@ -34,7 +34,7 @@ class PostAndBookForm(forms.Form):
         required=False,
         label="This post isn't about a book",
         label_suffix="",
-        widget=forms.CheckboxInput(attrs={"class": "form-check-input"}),
+        widget=forms.CheckboxInput(attrs={"class": "book-check"}),
     )
     # Book
     author = forms.CharField(
