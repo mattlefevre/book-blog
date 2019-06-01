@@ -11,67 +11,72 @@
 {% endblock stylesheet %}
 
 {% block content %}
-<h1>Create A New Post</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.non_field_errors }}
-    <div class="form-group">
-        {{ form.post_title.errors }}
-        {{ form.post_title.label_tag }}
-        {{ form.post_title }}
-    </div>
-    
-    <div  class="form-group">
-        {{ form.post_contents.errors }}
-        {{ form.post_contents.label_tag }}
-        {{ form.post_contents }}
-    </div>
-    <!-- Book Information -->
-    <h3>Some information about the book:</h3>
-    <div  class="form-check">
-        {{ form.book_check }}
-        {{ form.book_check.errors }}
-        {{ form.book_check.label_tag }}
-    </div  class="form-group">
-    
-    <div id="book_check">
-        <div  class="form-group" >
-            {{ form.author.errors }}
-            {{ form.author.label_tag }}
-            {{ form.author }}
-        </div>
+
+
+<div class="form-container">
+    <h1 class="flex-adjust mb10">Create A New Post</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <ul class="form-group">
+            <li>
+                {{ form.post_title.errors }}
+                {{ form.post_title.label_tag }}
+                {{ form.post_title }}
+            </li>
+            <li>
+                {{ form.post_contents.errors }}
+                {{ form.post_contents.label_tag }}
+                {{ form.post_contents }}
+            </li>
+        <!-- Book Information -->
+            <h1 class="flex-adjust mt10">Book Information:</h1>
+            <li class="mt10 mb10">
+                {{ form.book_check }}
+                {{ form.book_check.errors }}
+                {{ form.book_check.label_tag }}
+            </li>
+            </ul>
+            <ul class="form-group" id="book_check">
+                <li>
+                    {{ form.author.errors }}
+                    {{ form.author.label_tag }}
+                    {{ form.author }}    
+                </li>
+                <li>
+                    {{ form.title.errors }}
+                    {{ form.title.label_tag }}
+                    {{ form.title }}
+                </li>
+                <li>
+                    {{ form.isbn.errors }}
+                    {{ form.isbn.label_tag }}
+                    {{ form.isbn }}
+                </li>
+                <li>
+                    {{ form.cover_image.errors }}
+                    {{ form.cover_image.label_tag }}
+                    {{ form.cover_image }}
+                </li>
+                <li>
+                    {{ form.synopsis.errors }}
+                    {{ form.synopsis.label_tag }}
+                    {{ form.synopsis }}
+                </li>
+                <li>
+                {{ form.rating.errors }}
+                {{ form.rating.label_tag }}
+                {{ form.rating }}
+                </li>
+            </ul>
+        </ul>
         
-        <div class="form-group">
-            {{ form.title.errors }}
-            {{ form.title.label_tag }}
-            {{ form.title }}
-        </div>
         
-        <div  class="form-group">
-            {{ form.isbn.errors }}
-            {{ form.isbn.label_tag }}
-            {{ form.isbn }}
-        </div>
-        <div  class="form-group">
-            {{ form.cover_image.errors }}
-            {{ form.cover_image.label_tag }}
-            {{ form.cover_image }}
-        </div>
+            
 
-        <div  class="form-group">
-            {{ form.synopsis.errors }}
-            {{ form.synopsis.label_tag }}
-            {{ form.synopsis }}
-        </div>
-        <div  class="form-group">
-            {{ form.rating.errors }}
-            {{ form.rating.label_tag }}
-            {{ form.rating }}
-        </div>
-    </div>
 
-    <button type="submit" method="POST" class="button-style">Submit Post</button>
-</form>
-
+        <button type="submit" method="POST" class="button-style mt20 mb20">Submit Post</button>
+    </form>
+</div>
 <script src="{% static 'posts/post_form.js' %}"></script>
 {% endblock content %}

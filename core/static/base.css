@@ -60,6 +60,16 @@ body {
 
 .mr10 { margin-right: 10px; } 
 
+.m20 { margin: 20px; }
+
+.mt20 { margin-top: 20px; }
+
+.mb20 { margin-bottom: 20px; }
+
+.ml20 { margin-left: 20px; }
+
+.mr20 { margin-right: 20px; } 
+
 /* padding helpers */
 
 .p5 { padding: 5px; }
@@ -81,6 +91,16 @@ body {
 .pl10 { padding-left: 10px; }
 
 .pr10 { padding-right: 10px; }
+
+.p20 { padding: 20px; }
+
+.pt20 { padding-top: 20px; }
+
+.pb20 { padding-bottom: 20px; }
+
+.pl20 { padding-left: 20px; }
+
+.pr20 { padding-right: 20px; }
 
 .base-outer-margin {
     background-color: black;

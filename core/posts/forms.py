@@ -24,15 +24,16 @@ class PostAndBookForm(forms.Form):
     post_title = forms.CharField(
         label="Post Title",
         max_length=100,
-        widget=forms.TextInput(attrs={"class": "form-control"}),
+        widget=forms.TextInput(attrs={"class": " form-spacing"}),
     )
     post_contents = forms.CharField(
-        label="Post Contents", widget=forms.Textarea(attrs={"class": "form-control"})
+        label="Post Contents", widget=forms.Textarea(attrs={"class": " form-spacing"})
     )
     # Book-Check
     book_check = forms.BooleanField(
         required=False,
         label="This post isn't about a book",
+        label_suffix="",
         widget=forms.CheckboxInput(attrs={"class": "form-check-input"}),
     )
     # Book
@@ -40,34 +41,34 @@ class PostAndBookForm(forms.Form):
         required=False,
         label="Author*",
         max_length=50,
-        widget=forms.TextInput(attrs={"class": "form-control"}),
+        widget=forms.TextInput(attrs={"class": " form-spacing"}),
     )
     title = forms.CharField(
         required=False,
         label="Book's Title*",
         max_length=100,
-        widget=forms.TextInput(attrs={"class": "form-control"}),
+        widget=forms.TextInput(attrs={"class": " form-spacing"}),
     )
     isbn = forms.CharField(
         required=False,
         max_length=20,
-        widget=forms.TextInput(attrs={"class": "form-control"}),
+        widget=forms.TextInput(attrs={"class": " form-spacing"}),
     )
     cover_image = forms.ImageField(
         required=False,
-        widget=forms.ClearableFileInput(attrs={"class": "form-control-file"}),
+        widget=forms.ClearableFileInput(attrs={"class": " form-spacing-file"}),
     )
     synopsis = forms.CharField(
         required=False,
         label="Synopsis",
-        widget=forms.Textarea(attrs={"class": "form-control"}),
+        widget=forms.Textarea(attrs={"class": " form-spacing"}),
     )
     rating = forms.CharField(
         required=False,
         label="Rating",
         widget=forms.Select(
             choices=((1, 1), (2, 2), (3, 3), (4, 4), (5, 5)),
-            attrs={"class": "form-control"},
+            attrs={"class": " form-spacing"},
         ),
     )
 
