@@ -28,5 +28,5 @@ urlpatterns = [
     ),
     path("books/", BookListView.as_view(), name="books"),
     path("books/update/<int:pk>", BookUpdateView.as_view(), name="update_book"),
-    path("/delete/<str:slug>-<int:pk>", PostDeleteView.as_view(), name="delete_post"),
+    path("delete/<str:slug>-<int:pk>", PostDeleteView.as_view(), name="delete_post"),
 ]

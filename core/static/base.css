@@ -1,14 +1,21 @@
-/* helper stuff */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Alegreya', serif;
   }
 
 body {
     background-color: black;
-    font-family: 'Cinzel', serif;
 }
+
+/* helper stuff */
+/* font-stuff: normal text: Raleway; headers:  */
+.title-font {
+    font-family: 'Alegreya', serif;
+}
+
+
 
     /* link styling */
 .whitelinks {
@@ -75,13 +82,23 @@ body {
 
 .pr10 { padding-right: 10px; }
 
-.blank-space {
+.base-outer-margin {
     background-color: black;
     flex: 1;
 }
 
 .divider {
     height: 8px;
+    background-color: purple;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+}
+
+.button-style {
+    font-family: inherit;
+    padding:5px;
+
+    color:white;
     background-color: purple;
     border: 1px solid darkgray;
     border-radius: 5px;
@@ -122,8 +139,10 @@ body {
     padding: 10px;
     width:900px;
 
-    background-color:purple;
+    font-size: 16px;
     color:white;
+    
+    background-color:purple;
     border: 1px darkgray solid;
     border-radius: 5px;
 

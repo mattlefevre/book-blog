@@ -10,15 +10,15 @@
 {% endblock %}
 
 {% block content %}
-    <h1 class='post-center m10'>All Posts</h1>
+    <h1 class='post-center m10 title-font'>All Posts</h1>
     {% for post in object_list %}
         <div class="divider mt10"></div>
-        <a class="title" href="{% url 'posts:review' post.poster post.slug %}"><h3 class="mt5 mb5">{{ post.post_title }}</h3></a>
+        <a class="title title-font" href="{% url 'posts:review' post.poster post.slug %}"><h3 class="mt5 mb5">{{ post.post_title }}</h3></a>
         <div class="author_line mt5 mb5">
             <a href="{% url 'users:individual_reviewer' post.poster.pk post.poster.username %}">{{ post.poster }}</a>
             <time>{{ post.publish_at|date:"d M Y" }}</time>
         </div>
-        <p class="mt10 mb10">{{ post.post_contents|truncatechars:200 }}</p>
+        <p class="mt10 mb10 ">{{ post.post_contents|truncatechars:200 }}</p>
         <a class="title mb10" href="{% url 'posts:review' post.poster post.slug %}">Read More.</a> 
     {% endfor %}
 {% endblock content %}
