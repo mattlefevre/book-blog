@@ -2,10 +2,6 @@
    display:none;
 }
 
-.notChecked{
-    display: block;
-}
-
 .form-container {
     width: 80%;
     max-width: 1200px;

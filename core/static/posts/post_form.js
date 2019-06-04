@@ -1,10 +1,10 @@
-var checkbox = document.querySelector("input[name=no_book]");
-var book_form = document.getElementById("book_form")
+var checkbox = document.querySelector("input[name=book_check]");
+var book_form = document.getElementById("include_book")
 
 checkbox.addEventListener( 'change', function() {
     if(this.checked) {
         book_form.className = "checked"
     } else {
-        book_form.className = "notChecked"
+        book_form.className = "form-group"
     }
 });

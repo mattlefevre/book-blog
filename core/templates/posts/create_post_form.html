@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="{% static 'posts/post_form.css' %}">
 {% endblock stylesheet %}
 
+
 {% block content %}
 
 
@@ -37,7 +38,7 @@
                 {{ form.book_check.label_tag }}
             </li>
             </ul>
-            <ul class="form-group" id="book_check">
+            <ul class="form-group" id="include_book">
                 <li>
                     {{ form.author.errors }}
                     {{ form.author.label_tag }}
