@@ -1,16 +1,32 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 <title>Sign In</title>
 {% endblock title %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'account/login.css' %}">
+{% endblock stylesheet %}
+
 {% block content %}
 
 <h1>Sign In</h1>
-<form method="post">
+<form method="post" class="form-container">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign In</button>
+    <ul class="form-group">
+        <li>
+            {{ form.login.errors }}
+            {{ form.login.label_tag }}
+            {{ form.login }}
+        </li>
+        <li>
+            {{ form.password.errors }}
+            {{ form.password.label_tag }}
+            {{ form.password }}
+        </li>
+    </ul>
+    <button type="submit" class="button-style mt15 ml15">Sign In</button>
 </form>
 
 {% endblock content %}

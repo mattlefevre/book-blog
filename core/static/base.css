@@ -15,7 +15,9 @@ body {
     font-family: 'Alegreya', serif;
 }
 
-
+p, label, input{
+    font-size: 18px;
+}
 
     /* link styling */
 .whitelinks {
@@ -59,6 +61,16 @@ body {
 .ml10 { margin-left: 10px; }
 
 .mr10 { margin-right: 10px; } 
+
+.m15 { margin: 15px; }
+
+.mt15 { margin-top: 15px; }
+
+.mb15 { margin-bottom: 15px; }
+
+.ml15 { margin-left: 15px; }
+
+.mr15 { margin-right: 15px; } 
 
 .m20 { margin: 20px; }
 
@@ -116,12 +128,14 @@ body {
 
 .button-style {
     font-family: inherit;
+    font-size: 15px;
     padding:5px;
 
     color:white;
     background-color: purple;
     border: 1px solid darkgray;
     border-radius: 5px;
+
 }
 
 /* end all stuff */
