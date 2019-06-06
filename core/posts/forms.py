@@ -12,9 +12,8 @@ class PostForm(forms.ModelForm):
 class BookForm(forms.ModelForm):
     class Meta:
         model = Book
-        fields = ["author", "title", "isbn", "cover_image", "synopsis", "rating"]
+        fields = ["author", "title", "isbn", "synopsis", "rating"]
         widgets = {
-            "cover_image": forms.FileInput(attrs={"class": "buttontest"}),
             "rating": forms.Select(choices=((1, 1), (2, 2), (3, 3), (4, 4), (5, 5))),
         }
 
@@ -22,12 +21,17 @@ class BookForm(forms.ModelForm):
 class PostAndBookForm(forms.Form):
     # Post
     post_title = forms.CharField(
-        label="Post Title",
+        label="Post Title*",
         max_length=100,
         widget=forms.TextInput(attrs={"class": " form-spacing"}),
     )
     post_contents = forms.CharField(
-        label="Post Contents", widget=forms.Textarea(attrs={"class": " form-spacing"})
+        label="Post Contents*", widget=forms.Textarea(attrs={"class": " form-spacing"})
+    )
+    image = forms.ImageField(
+        label="Image (Optional)",
+        required=False,
+        widget=forms.ClearableFileInput(attrs={"class": " form-spacing-file"}),
     )
     # Book-Check
     book_check = forms.BooleanField(
@@ -54,10 +58,7 @@ class PostAndBookForm(forms.Form):
         max_length=20,
         widget=forms.TextInput(attrs={"class": " form-spacing"}),
     )
-    cover_image = forms.ImageField(
-        required=False,
-        widget=forms.ClearableFileInput(attrs={"class": " form-spacing-file"}),
-    )
+    
     synopsis = forms.CharField(
         required=False,
         label="Synopsis",

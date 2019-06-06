@@ -30,6 +30,11 @@
                 {{ form.post_contents.label_tag }}
                 {{ form.post_contents }}
             </li>
+            <li>
+                {{ form.image.errors }}
+                {{ form.image.label_tag }}
+                {{ form.image }}
+            </li>
         <!-- Book Information -->
             <h1 class="flex-adjust mt10">Book Information:</h1>
             <li class="mt10 mb10">
@@ -53,11 +58,6 @@
                     {{ form.isbn.errors }}
                     {{ form.isbn.label_tag }}
                     {{ form.isbn }}
-                </li>
-                <li>
-                    {{ form.cover_image.errors }}
-                    {{ form.cover_image.label_tag }}
-                    {{ form.cover_image }}
                 </li>
                 <li>
                     {{ form.synopsis.errors }}

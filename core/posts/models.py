@@ -12,7 +12,6 @@ class Book(models.Model):
     author = models.CharField(max_length=50)
     title = models.CharField(max_length=100)
     synopsis = models.TextField(blank=True, null=True)
-    cover_image = models.ImageField(blank=True, null=True)
     isbn = models.CharField(max_length=20, blank=True, null=True)
     rating = models.PositiveSmallIntegerField(
         default=1,
@@ -37,6 +36,7 @@ class Post(models.Model):
     # User-created
     post_title = models.CharField(max_length=100)
     post_contents = models.TextField()
+    image = models.ImageField(blank=True, null=True)
     book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
