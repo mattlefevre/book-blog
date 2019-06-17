@@ -14,9 +14,9 @@
 
     {% for poster in object_list %}
     <a class="reviewer" href="{% url 'users:individual_reviewer' poster.pk poster.username %}"><h3>{{ poster.username }}</h3></a>
-        {% for post in poster.posts %}
+        {% for post in poster.post_set.all %}
         <ul>
-            <a href="{% url 'posts:review' poster.username post.slug %}"><li>{{ post.title }}</li> </a>
+            <li class="whitelinks post-list ml20"><a href="{% url 'posts:review' poster.username post.slug %}">{{ post }}</a></li>
         </ul>
         {% endfor %}
     {% endfor %}

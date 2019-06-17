@@ -1,7 +1,12 @@
-.reviewer {
+.reviewer, .reviewer:hover, .reviewer:visited, .reviewer:link {
     color: purple;
 }
 
 .reviewer:hover {
     color:purple;
+}
+
+.post-list {
+    text-decoration: underline;
+    list-style: none;
 }
