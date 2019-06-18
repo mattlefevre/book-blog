@@ -1,12 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 <title>All Reviewed Books</title>
 {% endblock title %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'posts/book_list.css' %}">
+{% endblock stylesheet %}
+
+
 {% block content %}
 <h1>THERE BE BOOKS HERE</h1>
 {% for book in object_list %}
-<p>{{ book }}</p>
+<p>{{ book.title }} by {{ book.author }}</p>
+    {% for post in book.post_set.all %}
+    <ul>
+        <li class="whitelinks ml20 post-title"><a href="{% url 'posts:review' post.poster post.slug %}">{{ post }}</a></li>
+    </ul>
+    {% endfor %}
+    <div class="divider m10"></div>
 {% endfor %}
+
 {% endblock content %}
