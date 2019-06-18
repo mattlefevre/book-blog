@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Alegreya', serif;
-    font-size: 1.1em;
   }
 
 body {
@@ -16,6 +15,9 @@ body {
     font-family: 'Alegreya', serif;
 }
 
+p, label, input{
+    font-size: 18px;
+}
 
     /* link styling */
 .whitelinks {
