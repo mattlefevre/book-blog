@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth.decorators import login_required, permission_required
-from posts.views import (
+from core.posts.views import (
     BookListView,
     BookUpdateView,
     PostCreateView,

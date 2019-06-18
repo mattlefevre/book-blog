@@ -1,6 +1,6 @@
 from django.test import Client, TestCase, SimpleTestCase
 from django.urls import reverse
-from users.models import CustomUser
+from core.users.models import CustomUser
 
 # Naming convention: test_{url_name, not actual url}_page
 

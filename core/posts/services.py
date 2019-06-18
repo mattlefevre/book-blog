@@ -1,9 +1,9 @@
 """Holds the business logic of Posts. Functions here should only be helping to convert input into 
 ORM objects. """
 
-from posts.models import Book, Post
+from core.posts.models import Book, Post
 from django import forms
-from users.models import CustomUser
+from core.users.models import CustomUser
 
 # from posts.forms import PostAndBookForm
 

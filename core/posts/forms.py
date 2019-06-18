@@ -1,6 +1,6 @@
 from django import forms
-from posts.models import Book, Post
-from posts.services import no_book_check, create_post_and_book
+from core.posts.models import Book, Post
+from core.posts.services import no_book_check, create_post_and_book
 
 
 class PostForm(forms.ModelForm):

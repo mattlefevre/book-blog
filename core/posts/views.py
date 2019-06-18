@@ -9,9 +9,9 @@ from django.views.generic import (
 )
 from django.urls import reverse, reverse_lazy
 
-from posts.models import Book, Post
-from posts.forms import BookForm, PostForm, PostAndBookForm
-from posts.services import create_post_and_book, book_excluded_check, no_book_check
+from core.posts.models import Book, Post
+from core.posts.forms import BookForm, PostForm, PostAndBookForm
+from core.posts.services import create_post_and_book, book_excluded_check, no_book_check
 
 # Create your views here.
 class PostCreateView(CreateView):
