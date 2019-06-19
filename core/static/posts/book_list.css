@@ -2,3 +2,12 @@
     list-style: none;
     text-decoration: underline;
 }
+
+.book-header{
+    text-align: center;
+}
+
+.book-title {
+    font-style: italic;
+    color: yellow;
+}
