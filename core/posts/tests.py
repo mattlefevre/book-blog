@@ -1,7 +1,7 @@
 from django.test import Client, TestCase, SimpleTestCase
 from django.urls import reverse
 from users.models import CustomUser
-from posts.models import Post
+from posts.models import Post,Book
 
 # Naming convention: test_{url_name, not actual url}_page
 
@@ -34,7 +34,7 @@ class LoggedOutPostResponseTests(TestCase):
     # NOTE: Need to add tests for the admin page, and then perform admin hardening.
 
 
-class PostModelTest(TestCase):
+class PostOnlyModelTest(TestCase):
 
     def setUp(self):
         CustomUser.objects.create_user(
@@ -64,6 +64,66 @@ class PostModelTest(TestCase):
         expected_content = f"{post.post_contents}"
         self.assertEqual(expected_content, "test contents")
 
+class PostAndBookModelTest(TestCase):
+
+    def setUp(self):
+        CustomUser.objects.create_user(
+            username="testusername",
+            password="test123",
+            email="test@test.test"
+        )
+
+        Book.objects.create(
+            author="Test Author",
+            title="The Best Book Ever",
+            synopsis="I included a synopsis",
+            isbn="123456789",
+            rating=1,
+        )
+
+        Post.objects.create(
+            post_title="Test Title",
+            post_contents="test contents",
+            poster=CustomUser.objects.get(id=1),
+            book=Book.objects.get(id=1)
+            )
+
+    def test_post_title(self):
+        post = Post.objects.get(id=1)
+        expected_object_name = f"{post.post_title}"
+        self.assertEqual(expected_object_name, "Test Title")
+    
+    def test_post_poster(self):
+        post = Post.objects.get(id=1)
+        expected_poster = f"{post.poster}"
+        self.assertEqual(expected_poster, "testusername")
+
+    def test_post_content(self):
+        post = Post.objects.get(id=1)
+        expected_content = f"{post.post_contents}"
+        self.assertEqual(expected_content, "test contents")
+
+    def test_post_book_author(self):
+        post = Post.objects.get(id=1)
+        expected_author = f"{post.book.author}"
+        self.assertEqual(expected_author, "Test Author")
+
+    def test_post_book_title(self):
+        post = Post.objects.get(id=1)
+        expected_title = f"{post.book.title}"
+        self.assertEqual(expected_title, "The Best Book Ever")
+    def test_post_book_synopsis(self):
+        post = Post.objects.get(id=1)
+        expected_synopsis = f"{post.book.synopsis}"
+        self.assertEqual(expected_synopsis, "I included a synopsis")
+    def test_post_book_isbn(self):
+        post = Post.objects.get(id=1)
+        expected_isbn = f"{post.book.isbn}"
+        self.assertEqual(expected_isbn, "123456789")
+    def test_post_book_rating(self):
+        post = Post.objects.get(id=1)
+        expected_rating = f"{post.book.rating}"
+        self.assertEqual(expected_rating, "1")
 
 class LoggedInResponseTests(TestCase):
     # NOTE: Gotta figure out how to test while logged in
