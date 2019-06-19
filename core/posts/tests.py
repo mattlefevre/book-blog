@@ -112,14 +112,17 @@ class PostAndBookModelTest(TestCase):
         post = Post.objects.get(id=1)
         expected_title = f"{post.book.title}"
         self.assertEqual(expected_title, "The Best Book Ever")
+    
     def test_post_book_synopsis(self):
         post = Post.objects.get(id=1)
         expected_synopsis = f"{post.book.synopsis}"
         self.assertEqual(expected_synopsis, "I included a synopsis")
+    
     def test_post_book_isbn(self):
         post = Post.objects.get(id=1)
         expected_isbn = f"{post.book.isbn}"
         self.assertEqual(expected_isbn, "123456789")
+    
     def test_post_book_rating(self):
         post = Post.objects.get(id=1)
         expected_rating = f"{post.book.rating}"
