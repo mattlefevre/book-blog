@@ -30,11 +30,12 @@ def create_post_and_book(*, form: "PostAndBookForm", user: CustomUser) -> None:
     """
 
     if form.is_valid():
+        # Post Fields
         poster = user
         post_title = form.cleaned_data["post_title"]
         post_contents = form.cleaned_data["post_contents"]
         image = form.cleaned_data["image"]
-
+        # Book Fields
         author = form.cleaned_data["author"]
         title = form.cleaned_data["title"]
         synopsis = form.cleaned_data["synopsis"]
@@ -42,7 +43,7 @@ def create_post_and_book(*, form: "PostAndBookForm", user: CustomUser) -> None:
         rating = form.cleaned_data["rating"]
 
         if no_book_check(form=form.cleaned_data):
-            post_to_db = Post(post_title=post_title, post_contents=post_contents)
+            post_to_db = Post(post_title=post_title, post_contents=post_contents, image=image)
         else:
             # Save with book
             book_to_db = Book(
